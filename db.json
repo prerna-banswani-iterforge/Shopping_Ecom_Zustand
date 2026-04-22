@@ -1,0 +1,152 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "T-Shirt",
+      "price": 499,
+      "imageUrl": "https://picsum.photos/200?random=1",
+      "parentCategoryId": "clothing",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    },
+    {
+      "id": 2,
+      "name": "Jeans",
+      "price": 999,
+      "imageUrl": "https://picsum.photos/200?random=2",
+      "parentCategoryId": "clothing",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    },
+    {
+      "id": 3,
+      "name": "Sneakers",
+      "price": 1999,
+      "imageUrl": "https://picsum.photos/200?random=3",
+      "parentCategoryId": "footwear",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    },
+    {
+      "id": 4,
+      "name": "Sandals",
+      "price": 799,
+      "imageUrl": "https://picsum.photos/200?random=4",
+      "parentCategoryId": "footwear",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    },
+    {
+      "id": 5,
+      "name": "Headphones",
+      "price": 1499,
+      "imageUrl": "https://picsum.photos/200?random=5",
+      "parentCategoryId": "electronics",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    },
+    {
+      "id": 6,
+      "name": "Keyboard",
+      "price": 899,
+      "imageUrl": "https://picsum.photos/200?random=6",
+      "parentCategoryId": "electronics",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    },
+    {
+      "id": 7,
+      "name": "Watch",
+      "price": 1299,
+      "imageUrl": "https://picsum.photos/200?random=7",
+      "parentCategoryId": "accessories",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    },
+    {
+      "id": 8,
+      "name": "Backpack",
+      "price": 1099,
+      "imageUrl": "https://picsum.photos/200?random=8",
+      "parentCategoryId": "accessories",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    },
+    {
+      "id": 9,
+      "name": "Digital Watch",
+      "price": 1499,
+      "imageUrl": "https://picsum.photos/200?random=9",
+      "parentCategoryId": "accessories",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    },
+    {
+      "id": 10,
+      "name": "Shirts",
+      "price": 1599,
+      "imageUrl": "https://picsum.photos/200?random=10",
+      "parentCategoryId": "clothing",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit laborum autem quasi, maxime quidem."
+    }
+  ],
+  "categories": [
+    {
+      "id": "clothing",
+      "name": "Clothing"
+    },
+    {
+      "id": "footwear",
+      "name": "Footwear"
+    },
+    {
+      "id": "electronics",
+      "name": "Electronics"
+    },
+    {
+      "id": "accessories",
+      "name": "Accessories"
+    }
+  ],
+  "cart": [
+    {
+      "productId": 3,
+      "quantity": 4,
+      "id": 1
+    },
+    {
+      "productId": 4,
+      "quantity": 2,
+      "id": 2
+    },
+    {
+      "productId": 2,
+      "name": "Jeans",
+      "price": 999,
+      "imageUrl": "https://picsum.photos/200?random=2",
+      "quantity": 2,
+      "id": 3
+    },
+    {
+      "productId": 8,
+      "name": "Backpack",
+      "price": 1099,
+      "imageUrl": "https://picsum.photos/200?random=8",
+      "quantity": 1,
+      "id": 4
+    }
+  ],
+  "wishlist": [
+    {
+      "id": 1,
+      "wishlistName": "My Wishlist1",
+      "products": [
+        {
+          "id": 4,
+          "name": "Sandals",
+          "price": 799,
+          "imageUrl": "https://picsum.photos/200?random=4",
+          "parentCategoryId": "footwear"
+        },
+        {
+          "id": 6,
+          "name": "Keyboard",
+          "price": 899,
+          "imageUrl": "https://picsum.photos/200?random=6",
+          "parentCategoryId": "electronics"
+        }
+      ]
+    }
+  ]
+}
