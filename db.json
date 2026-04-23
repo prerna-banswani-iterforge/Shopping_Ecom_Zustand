@@ -113,7 +113,7 @@
       "name": "Sneakers",
       "price": 1999,
       "imageUrl": "https://picsum.photos/200?random=3",
-      "quantity": 7,
+      "quantity": 4,
       "id": 13
     },
     {
@@ -135,6 +135,13 @@
           "name": "Sandals",
           "price": 799,
           "imageUrl": "https://picsum.photos/200?random=4",
+          "parentCategoryId": "footwear"
+        },
+        {
+          "id": 3,
+          "name": "Sneakers",
+          "price": 1999,
+          "imageUrl": "https://picsum.photos/200?random=3",
           "parentCategoryId": "footwear"
         }
       ]
