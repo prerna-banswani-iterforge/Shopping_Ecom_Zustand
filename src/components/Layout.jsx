@@ -1,5 +1,3 @@
-// src/components/Layout.jsx
-//
 // Layout wraps every page.
 // Contains Navbar (always visible) + <Outlet /> (current page)
 //
@@ -11,7 +9,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
-
+import Toast from "./Toast.jsx";
 function Layout() {
   console.log("[Layout] Rendering layout wrapper");
 
@@ -19,7 +17,7 @@ function Layout() {
     <div className="min-h-screen bg-gray-50">
       {/* Navbar always visible on every page */}
       <Navbar />
-
+      <Toast />
       {/* Outlet = current page renders here */}
       <Outlet />
     </div>

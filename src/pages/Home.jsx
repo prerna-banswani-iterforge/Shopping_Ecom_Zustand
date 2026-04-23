@@ -1,9 +1,3 @@
-// pages/Home.jsx
-// Product Listing Page
-// - Category filter pills
-// - Product grid using ProductCard component
-// - WishlistModal managed here (one modal for all cards)
-
 import React, { useEffect, useState } from "react";
 import useStore from "../store/useStore";
 import ProductCard from "../components/ProductCard.jsx";

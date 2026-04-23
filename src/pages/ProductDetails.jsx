@@ -120,7 +120,10 @@ function ProductDetails() {
             >
               Add to Cart
             </button>
-            <button className="flex-1 border-2 border-gray-300 hover:border-red-400 hover:text-red-500 font-semibold py-3 px-6 rounded-xl transition-colors text-gray-600">
+            <button
+              onClick={() => setShowWishlistModal(true)}
+              className="flex-1 border-2 border-gray-300 hover:border-red-400 hover:text-red-500 font-semibold py-3 px-6 rounded-xl transition-colors text-gray-600"
+            >
               Add to Wishlist
             </button>
           </div>

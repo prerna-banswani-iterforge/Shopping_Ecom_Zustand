@@ -1,10 +1,3 @@
-// components/ProductCard.jsx
-// Reusable product card used in the Home page grid
-// Props:
-//   product       - the product object
-//   onAddToWishlist - function called when wishlist button clicked
-//                    (opens the wishlist modal in Home page)
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useStore from "../store/useStore";
@@ -63,7 +56,10 @@ function ProductCard({ product, onAddToWishlist }) {
           >
             Add to Cart
           </button>
-          <button className="px-2 py-2 border border-gray-300 hover:border-red-400 hover:text-red-500 rounded-lg text-gray-500 transition-colors text-sm">
+          <button
+            onClick={handleAddToWishlist}
+            className="px-2 py-2 border border-gray-300 hover:border-red-400 hover:text-red-500 rounded-lg text-gray-500 transition-colors text-sm"
+          >
             Add to Wishlist
           </button>
         </div>
