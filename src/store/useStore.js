@@ -190,7 +190,7 @@ const useStore = create((set, get) => ({
         products: updatedProducts,
       });
       get().fetchWishlists();
-      alert(`${product.name} added to ${wishlist.wishlistName}!`);
+      get().showToast(`${product.name} added to wishlist`, "success");
     } catch (error) {
       console.error("[Store] Error adding to wishlist:", error);
       alert("Failed to add to wishlist");
@@ -212,7 +212,7 @@ const useStore = create((set, get) => ({
         products: updatedProducts,
       });
       get().fetchWishlists();
-      get.showToast("Removed From Wishlist", "errro");
+      get().showToast("Removed From Wishlist", "error");
     } catch (error) {
       console.error("[Store] Error removing from wishlist:", error);
       alert("Failed to remove product");
