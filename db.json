@@ -101,30 +101,28 @@
   ],
   "cart": [
     {
-      "productId": 3,
-      "quantity": 4,
-      "id": 1
-    },
-    {
-      "productId": 4,
-      "quantity": 2,
-      "id": 2
-    },
-    {
-      "productId": 2,
-      "name": "Jeans",
-      "price": 999,
-      "imageUrl": "https://picsum.photos/200?random=2",
-      "quantity": 2,
-      "id": 3
-    },
-    {
-      "productId": 8,
-      "name": "Backpack",
-      "price": 1099,
-      "imageUrl": "https://picsum.photos/200?random=8",
+      "productId": 9,
+      "name": "Digital Watch",
+      "price": 1499,
+      "imageUrl": "https://picsum.photos/200?random=9",
       "quantity": 1,
-      "id": 4
+      "id": 10
+    },
+    {
+      "productId": 3,
+      "name": "Sneakers",
+      "price": 1999,
+      "imageUrl": "https://picsum.photos/200?random=3",
+      "quantity": 7,
+      "id": 13
+    },
+    {
+      "productId": 10,
+      "name": "Shirts",
+      "price": 1599,
+      "imageUrl": "https://picsum.photos/200?random=10",
+      "quantity": 1,
+      "id": 14
     }
   ],
   "wishlist": [
@@ -138,13 +136,6 @@
           "price": 799,
           "imageUrl": "https://picsum.photos/200?random=4",
           "parentCategoryId": "footwear"
-        },
-        {
-          "id": 6,
-          "name": "Keyboard",
-          "price": 899,
-          "imageUrl": "https://picsum.photos/200?random=6",
-          "parentCategoryId": "electronics"
         }
       ]
     }
