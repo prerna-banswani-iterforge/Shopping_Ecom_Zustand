@@ -230,6 +230,19 @@ const useStore = create((set, get) => ({
       get().showToast("Failed to delete wishlist", "error");
     }
   },
+
+  createWishlist: async (wishlistName) => {
+    try {
+      await axios.post(`${BASE_URL}/wishlist`, {
+        wishlistName,
+        products: [],
+      });
+      get().fetchWishlists();
+      get().showToast("Wishlist created", "success");
+    } catch (error) {
+      get().showToast("Failed to create wishlist", "error");
+    }
+  },
 }));
 
 export default useStore;
