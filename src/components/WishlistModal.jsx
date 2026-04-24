@@ -3,19 +3,32 @@ import useStore from "../store/useStore";
 
 function WishlistModal({ product, onClose }) {
   const [selectedWishlistId, setSelectedWishlistId] = useState("");
+  const [showNewInput, setShowNewInput] = useState(false);
+  const [newWishlistName, setNewWishlistName] = useState("");
 
   const wishlists = useStore((state) => state.wishlists);
   const addToWishlist = useStore((state) => state.addToWishlist);
+  const createWishlist = useStore((state) => state.createWishlist);
 
   // When dropdown changes
   const handleDropdownChange = (e) => {
     const value = e.target.value;
     setSelectedWishlistId(value);
+    setShowNewInput(value === "new");
   };
 
   const handleConfirm = async () => {
     if (!selectedWishlistId) {
       alert("Please select a wishlist");
+      return;
+    }
+    if (selectedWishlistId === "new") {
+      if (!newWishlistName.trim()) {
+        alert("Please enter a wishlist name");
+        return;
+      }
+      await createWishlist(newWishlistName);
+      onClose();
       return;
     }
     await addToWishlist(product, parseInt(selectedWishlistId));
@@ -59,7 +72,23 @@ function WishlistModal({ product, onClose }) {
               {w.wishlistName}
             </option>
           ))}
+          <option value="new">+ Create Wishlist</option>
         </select>
+
+        {showNewInput && (
+          <div className="mb-3">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Wishlist Name
+            </label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-500"
+              placeholder="New Input"
+              value={newWishlistName}
+              onChange={(e) => setNewWishlistName(e.target.value)}
+            />
+          </div>
+        )}
 
         {/* Footer Buttons */}
         <div className="flex gap-3 mt-4">
@@ -73,7 +102,7 @@ function WishlistModal({ product, onClose }) {
             onClick={handleConfirm}
             className="flex-1 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg text-sm font-medium transition-colors"
           >
-            Add to Wishlist
+            {showNewInput ? "Create Wishlist" : "Add to Wishlist"}
           </button>
         </div>
       </div>
