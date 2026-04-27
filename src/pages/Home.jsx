@@ -12,6 +12,8 @@ function Home() {
   // Get state and actions from Zustand store
   const products = useStore((state) => state.products);
   const categories = useStore((state) => state.categories);
+  const productsLoading = useStore((state) => state.productsLoading);
+  const productsLoaded = useStore((state) => state.productsLoaded);
   const fetchProducts = useStore((state) => state.fetchProducts);
   const fetchCategories = useStore((state) => state.fetchCategories);
   const fetchProductsByCategory = useStore(
@@ -36,6 +38,8 @@ function Home() {
   };
 
   console.log("[Home] Rendering with", products.length, "products");
+
+  const showProductsLoading = productsLoading && !productsLoaded;
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -74,7 +78,11 @@ function Home() {
       </div>
 
       {/* Products grid */}
-      {products.length === 0 ? (
+      {showProductsLoading ? (
+        <div className="text-center py-20 text-gray-400">
+          <p className="text-lg">Loading products...</p>
+        </div>
+      ) : products.length === 0 ? (
         // Loading / empty state
         <div className="text-center py-20 text-gray-400">
           <p className="text-lg">No Products...</p>
