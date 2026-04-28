@@ -10,6 +10,14 @@ const useStore = create((set, get) => ({
   categories: [],
   cart: [],
   wishlists: [],
+  productsLoading: false,
+  productsLoaded: false,
+  categoriesLoading: false,
+  categoriesLoaded: false,
+  cartLoading: false,
+  cartLoaded: false,
+  wishlistsLoading: false,
+  wishlistsLoaded: false,
 
   toast: {
     show: false,
@@ -27,47 +35,67 @@ const useStore = create((set, get) => ({
 
   fetchProducts: async () => {
     try {
+      set({ productsLoading: true });
       console.log("[Store] Fetching products...");
       const res = await axios.get(`${BASE_URL}/products`);
-      set({ products: res.data });
+      set({
+        products: res.data,
+        productsLoading: false,
+        productsLoaded: true,
+      });
       console.log("[Store] Products loaded:", res.data.length);
     } catch (error) {
+      set({ productsLoading: false, productsLoaded: true });
       console.error("[Store] Error fetching products:", error);
     }
   },
 
   fetchProductsByCategory: async (categoryId) => {
     try {
+      set({ productsLoading: true });
       const url =
         categoryId === "all"
           ? `${BASE_URL}/products`
           : `${BASE_URL}/products?parentCategoryId=${categoryId}`;
 
       const res = await axios.get(url);
-      set({ products: res.data });
+      set({
+        products: res.data,
+        productsLoading: false,
+        productsLoaded: true,
+      });
     } catch (error) {
+      set({ productsLoading: false, productsLoaded: true });
       console.error(error);
     }
   },
 
   fetchCategories: async () => {
     try {
+      set({ categoriesLoading: true });
       console.log("[Store] Fetching categories...");
       const res = await axios.get(`${BASE_URL}/categories`);
-      set({ categories: res.data });
+      set({
+        categories: res.data,
+        categoriesLoading: false,
+        categoriesLoaded: true,
+      });
       console.log("[Store] Categories loaded:", res.data);
     } catch (error) {
+      set({ categoriesLoading: false, categoriesLoaded: true });
       console.error("[Store] Error fetching categories:", error);
     }
   },
 
   fetchCart: async () => {
     try {
+      set({ cartLoading: true });
       console.log("[Store] Fetching cart...");
       const res = await axios.get(`${BASE_URL}/cart`);
-      set({ cart: res.data });
+      set({ cart: res.data, cartLoading: false, cartLoaded: true });
       console.log("CArt fetched");
     } catch (error) {
+      set({ cartLoading: false, cartLoaded: true });
       console.error("[Store] Error fetching cart:", error);
     }
   },
@@ -146,10 +174,16 @@ const useStore = create((set, get) => ({
 
   fetchWishlists: async () => {
     try {
+      set({ wishlistsLoading: true });
       const res = await axios.get(`${BASE_URL}/wishlist`);
-      set({ wishlists: res.data });
+      set({
+        wishlists: res.data,
+        wishlistsLoading: false,
+        wishlistsLoaded: true,
+      });
       console.log("[Store] Wishlists loaded:", res.data.length);
     } catch (error) {
+      set({ wishlistsLoading: false, wishlistsLoaded: true });
       console.error("[Store] Error fetching wishlists:", error);
     }
   },

@@ -7,6 +7,8 @@ const TAX_RATE = 0.05;
 
 function Cart() {
   const cart = useStore((state) => state.cart);
+  const cartLoading = useStore((state) => state.cartLoading);
+  const cartLoaded = useStore((state) => state.cartLoaded);
   const fetchCart = useStore((state) => state.fetchCart);
   const updateCartQuantity = useStore((state) => state.updateCartQuantity);
   const removeFromCart = useStore((state) => state.removeFromCart);
@@ -23,7 +25,15 @@ function Cart() {
   const tax = subtotal * TAX_RATE;
   const total = subtotal + SHIPPING + tax;
 
-  if (cart.length === 0) {
+  if (cartLoading && !cartLoaded) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 py-20 text-center text-gray-400">
+        <p className="text-lg">Loading cart...</p>
+      </div>
+    );
+  }
+
+  if (cartLoaded && cart.length === 0) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-20 text-center">
         <h2 className="text-2xl font-semibold text-gray-700 mb-2">

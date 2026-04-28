@@ -6,6 +6,8 @@ function Wishlist() {
   const [activeWishlistId, setActiveWishlistId] = useState(null);
 
   const wishlists = useStore((state) => state.wishlists);
+  const wishlistsLoading = useStore((state) => state.wishlistsLoading);
+  const wishlistsLoaded = useStore((state) => state.wishlistsLoaded);
   const fetchWishlists = useStore((state) => state.fetchWishlists);
   const removeFromWishlist = useStore((state) => state.removeFromWishlist);
   const deleteWishlist = useStore((state) => state.deleteWishlist);
@@ -36,6 +38,14 @@ function Wishlist() {
 
   const activeWishlist = wishlists.find((w) => w.id === activeWishlistId);
 
+  if (wishlistsLoading && !wishlistsLoaded) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 py-20 text-center text-gray-400">
+        <p className="text-lg">Loading wishlists...</p>
+      </div>
+    );
+  }
+
   const handleDeleteWishlist = async () => {
     if (!activeWishlist) return;
 
@@ -56,7 +66,7 @@ function Wishlist() {
     removeFromWishlist(activeWishlistId, productId);
   };
 
-  if (wishlists.length === 0) {
+  if (wishlistsLoaded && wishlists.length === 0) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-20 text-center">
         <h2 className="text-2xl font-semibold text-gray-700 mb-2">
